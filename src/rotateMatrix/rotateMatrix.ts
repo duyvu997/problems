@@ -1,14 +1,11 @@
-const rotateClockwise = (
-    grid: number[][],
-    numOfRotates: number,
-  ): number[][] => {
+ export const rotateMatrix = (grid: number[][], numOfRotates: number): number[][]=> {
     const numOfRows = grid.length;
-    if (numOfRows !== grid[0].length)
-      throw new Error('Not square gird');
+    console.log(numOfRows);
+    if (numOfRows !== grid[0].length) throw new Error("Not square gird");
     if (numOfRotates < 0)
-      throw new Error('Not accept negative number of rotations');
+      throw new Error("Not accept negative number of rotations");
     const rotateTimes = numOfRotates % 4;
-  
+
     const numOfCycles = Math.floor(numOfRows / 2);
     for (let cycle = 0; cycle < numOfCycles; cycle++) {
       // The offset from the current coordinates to the next coordinates.
@@ -44,6 +41,4 @@ const rotateClockwise = (
       }
     }
     return grid;
-  };
-  
-  export default rotateClockwise;
+  }
